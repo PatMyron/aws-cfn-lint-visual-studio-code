@@ -16,6 +16,7 @@ jobs:
           java-version: 8
       - run: |
           cd aws-cloudformation-template-schema
+          sed -i 's/us-east-1: .*/us-east-1: https:\/\/cfn-resource-specifications-us-east-1-staged-prod.s3.amazonaws.com\/resource-specifications\/CloudFormationResourceSpecification.json/' src/main/resources/config.yml
           mvn package
           echo 'settings:
             regions: [us-east-1]
